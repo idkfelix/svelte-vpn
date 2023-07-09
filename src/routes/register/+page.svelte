@@ -1,8 +1,11 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import { auth } from "$lib/firebase";
+    import { page } from '$app/stores'
     import { createUserWithEmailAndPassword } from "firebase/auth";
     import { getNotificationsContext } from 'svelte-notifications';
+
+    const redirectTo = $page.url.searchParams.get('redirectTo')
 
     const { addNotification } = getNotificationsContext();
 
@@ -40,7 +43,11 @@
             body: JSON.stringify({ idToken }),
         });
 
-        goto('/dashboard')
+        if (redirectTo) {
+            goto(`/${redirectTo.slice(1)}`)
+        } else {
+            goto('/')
+        }
     }
 </script>
 

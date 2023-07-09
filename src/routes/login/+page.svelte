@@ -1,8 +1,11 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { auth, user } from "$lib/firebase";
+    import { auth } from "$lib/firebase";
+    import { page } from '$app/stores'
     import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "firebase/auth";
     import { getNotificationsContext } from 'svelte-notifications';
+
+    const redirectTo = $page.url.searchParams.get('redirectTo')
 
     const { addNotification } = getNotificationsContext();
 
@@ -20,7 +23,11 @@
         body: JSON.stringify({ idToken }),
         });
 
-        goto('/dashboard')
+        if (redirectTo) {
+            goto(`/${redirectTo.slice(1)}`)
+        } else {
+            goto('/')
+        }
     }
 
     async function signIn() {
@@ -43,7 +50,11 @@
         body: JSON.stringify({ idToken }),
         });
 
-        goto('/dashboard')
+        if (redirectTo) {
+            goto(`/${redirectTo.slice(1)}`)
+        } else {
+            goto('/')
+        }
     }
 
     const credentials = {
