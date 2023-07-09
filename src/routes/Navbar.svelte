@@ -1,10 +1,12 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import { auth, user } from "$lib/firebase";
     import { signOut } from "firebase/auth";
 
     async function signOutSSR() {
         await fetch("/api/login", { method: "DELETE" });
-        signOut(auth)
+        await signOut(auth)
+        goto('/')
     }
 </script>
 

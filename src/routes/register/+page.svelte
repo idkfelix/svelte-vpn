@@ -1,7 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { onMount } from 'svelte';
-    import { auth, user } from "$lib/firebase";
+    import { auth } from "$lib/firebase";
     import { createUserWithEmailAndPassword } from "firebase/auth";
     import { getNotificationsContext } from 'svelte-notifications';
 
@@ -40,6 +39,8 @@
             },
             body: JSON.stringify({ idToken }),
         });
+
+        goto('/dashboard')
     }
 </script>
 

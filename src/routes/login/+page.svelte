@@ -1,19 +1,8 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { onMount } from 'svelte';
     import { auth, user } from "$lib/firebase";
     import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword} from "firebase/auth";
     import { getNotificationsContext } from 'svelte-notifications';
-
-    let unsubscribe;
-  
-    onMount(() => {
-        unsubscribe = user.subscribe((currentUser) => {
-        if (currentUser) {
-            goto('/dashboard');
-        }
-        });
-    });
 
     const { addNotification } = getNotificationsContext();
 
@@ -30,6 +19,8 @@
         },
         body: JSON.stringify({ idToken }),
         });
+
+        goto('/dashboard')
     }
 
     async function signIn() {
@@ -51,6 +42,8 @@
         },
         body: JSON.stringify({ idToken }),
         });
+
+        goto('/dashboard')
     }
 
     const credentials = {
