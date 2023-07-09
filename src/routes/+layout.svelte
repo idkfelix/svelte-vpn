@@ -1,0 +1,12 @@
+<script>
+    import "../app.css";
+    import Navbar from "./Navbar.svelte";
+    import Notifications from 'svelte-notifications';
+</script>
+
+<Navbar/>
+<div class="p-5">
+    <Notifications>
+        <slot/>
+    </Notifications>
+</div>
