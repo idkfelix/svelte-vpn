@@ -16,21 +16,21 @@ export const POST: RequestHandler = async ({url}) => {
     try {
         spawnSync('./easyrsa', ['--batch', '--days=3650', 'build-client-full', client, 'nopass'], { cwd: '/etc/openvpn/server/easy-rsa/' });
     
-        const ovpnContent = `
-          ${execSync('cat /etc/openvpn/server/client-common.txt')}
-          <ca>
-          ${execSync('cat /etc/openvpn/server/easy-rsa/pki/ca.crt')}
-          </ca>
-          <cert>
-          ${execSync(`sed -ne '/BEGIN CERTIFICATE/,$ p' /etc/openvpn/server/easy-rsa/pki/issued/${client}.crt`)}
-          </cert>
-          <key>
-          ${execSync(`cat /etc/openvpn/server/easy-rsa/pki/private/${client}.key`)}
-          </key>
-          <tls-crypt>
-          ${execSync(`sed -ne '/BEGIN OpenVPN Static key/,$ p' /etc/openvpn/server/tc.key`)}
-          </tls-crypt>
-        `;
+const ovpnContent = `
+${execSync('cat /etc/openvpn/server/client-common.txt')}
+<ca>
+${execSync('cat /etc/openvpn/server/easy-rsa/pki/ca.crt')}
+</ca>
+<cert>
+${execSync(`sed -ne '/BEGIN CERTIFICATE/,$ p' /etc/openvpn/server/easy-rsa/pki/issued/${client}.crt`)}
+</cert>
+<key>
+${execSync(`cat /etc/openvpn/server/easy-rsa/pki/private/${client}.key`)}
+</key>
+<tls-crypt>
+${execSync(`sed -ne '/BEGIN OpenVPN Static key/,$ p' /etc/openvpn/server/tc.key`)}
+</tls-crypt>
+`;
     
     // returb .ovpn file
     return new Response(ovpnContent, {
