@@ -18,7 +18,7 @@
         <div class="w-full"/>
     </div>
     <div class="navbar-center">
-        <a class="navbar-center normal-case text-2xl font-bold text-white" href="/">Felix VPN</a>
+        <a class="navbar-center normal-case text-2xl font-bold text-primary-content" href="/">Felix VPN</a>
     </div>
     <div class="navbar-end">
         <div class="w-full"/>
