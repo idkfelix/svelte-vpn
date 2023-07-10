@@ -28,6 +28,7 @@
 	"dependencies": {
 		"firebase": "^10.0.0",
 		"firebase-admin": "^11.9.0",
+		"fs": "^0.0.1-security",
 		"svelte-notifications": "^0.9.98"
 	}
 }

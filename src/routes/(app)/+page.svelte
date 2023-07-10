@@ -1,5 +1,5 @@
 <script lang=ts>
-    import Features from "../components/Features.svelte";
+    import Features from "../../components/Features.svelte";
 </script>
 
 <div class="hero mt-10">

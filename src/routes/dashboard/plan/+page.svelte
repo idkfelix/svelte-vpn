@@ -2,4 +2,4 @@
     import { user } from "$lib/firebase";
 </script>
 
-<h1 class="text-2xl font-bold">{$user?.email}</h1>
+<h1>plan</h1>

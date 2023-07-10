@@ -10,7 +10,7 @@
 </svelte:head>
 
 <Navbar/>
-<div class="p-5">
+<div class="">
     <Notifications>
         <slot/>
     </Notifications>
