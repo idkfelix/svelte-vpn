@@ -17,15 +17,15 @@
         <div class="w-full"/>
     </div>
     <div class="navbar-center">
-        <a class="navbar-center normal-case text-2xl font-bold text-white" href="/">Title</a>
+        <a class="navbar-center normal-case text-2xl font-bold text-white" href="/">Felix VPN</a>
     </div>
     <div class="navbar-end">
         <div class="w-full"/>
         <a href="/dashboard" class="btn btn-ghost normal-case text-lg">Dashboard</a>
         {#if $user}
-            <button class="btn btn-ghost normal-case text-lg" on:click={signOutSSR}>Sign Out</button>
+            <button class="btn btn-ghost normal-case text-lg" on:click={signOutSSR}>Logout</button>
         {:else}
-            <button class="btn btn-ghost normal-case text-lg"><a href="/login">Sign In</a></button>
+            <button class="btn btn-ghost normal-case text-lg"><a href="/login">Login</a></button>
         {/if}
     </div>
 </div>

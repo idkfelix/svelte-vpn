@@ -1,6 +1,6 @@
 <script>
     import "../app.css";
-    import Navbar from "./Navbar.svelte";
+    import Navbar from "../components/Navbar.svelte";
     import Notifications from 'svelte-notifications';
 </script>
 

@@ -65,7 +65,7 @@
 
 <div class="relative flex flex-col items-center justify-center h-[70vh] overflow-hidden">
     <div class="w-full p-10 bg-base-300 rounded-xl shadow-md border-top lg:max-w-lg">
-        <h1 class="text-3xl font-semibold text-center text-content">Sign In</h1>
+        <h1 class="text-3xl font-semibold text-center text-content">Login</h1>
         <form class="space-y-4">
             <div>
                 <p class="label"><span class="text-base label-text">Email</span></p>
