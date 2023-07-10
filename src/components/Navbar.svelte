@@ -2,6 +2,7 @@
     import { goto } from "$app/navigation";
     import { auth, user } from "$lib/firebase";
     import { signOut } from "firebase/auth";
+    import { page } from "$app/stores";
 
     async function signOutSSR() {
         await fetch("/api/login", { method: "DELETE" });
